@@ -1,0 +1,26 @@
+<div class="root">
+    <div class="login-cont glass">
+        <form action="">
+            <mat-form-field class="form-field">
+                
+                <mat-label class="inp-label">Email</mat-label>
+                <mat-icon class="inp-icon">mail</mat-icon>
+                
+                <input matInput  (input)="onChangeEmail($event)" required style="color: whitesmoke;">
+                
+              </mat-form-field>
+              <div class="errormsg" *ngIf = "!emailerrorvalue">{{emailerrormsg}}</div>
+              <mat-form-field class="form-field">
+                <mat-label class="inp-label">Password</mat-label>
+                <mat-icon class="inp-icon">lock</mat-icon>
+                <input matInput [type]="hide ? 'password' : 'text'" style="color: whitesmoke;" (input)="onChangePasswd($event)">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" class="eye">
+                  <mat-icon style="color: rgb(137, 137, 137);">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+              <div class="errormsg" *ngIf = "!errorvalue">{{errormsg}}</div>
+              <button [disabled] = "!buttonVisible()" mat-button type="submit"(click)="onClick()" (mouseover)="onMouseOvered()" (keypress)="onKeyPressed()" (keydown)="keyDown()" style="color: rgba(50, 154, 250, 1);" class="login-btn">LOGIN</button>
+              <mat-label class="mat-label">Don't have an account? <span style="color: rgba(50, 154, 250, 1);">Sign Up</span></mat-label>
+        </form>
+    </div>
+</div>
